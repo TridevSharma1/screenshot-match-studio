@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application structure
+
+- Keep this project on its existing TanStack Start stack and use file-based routes; the source brief's React/Vite/Tailwind and no-backend constraints are met within the fixed host framework.
+- Keep website content in `src/mock/` and use browser localStorage for the requested prototype content and admin session; no backend or database is part of this site.

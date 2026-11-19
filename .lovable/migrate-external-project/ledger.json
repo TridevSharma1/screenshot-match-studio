@@ -1,0 +1,17 @@
+{
+  "source": "github",
+  "repository": "https://github.com/TridevSharma2/screenshot-match.git",
+  "capabilities": [
+    { "capability": "application code and routes", "source": "repository", "outcome": "recreate in the existing TanStack Start workspace, retaining the corporate portfolio and admin experience", "status": "in_progress", "next_action": "copy app source and verify public pages" },
+    { "capability": "database schema", "source": "none detected", "outcome": "not applicable; the brief explicitly requires no backend or database", "status": "not_applicable", "next_action": "none" },
+    { "capability": "bundled mock content", "source": "src/mock/site-data.ts", "outcome": "migrate sample products, services, company details, gallery, articles and other static content", "status": "in_progress", "next_action": "verify content renders and local edits persist" },
+    { "capability": "user records and identities", "source": "none detected", "outcome": "not applicable; no user export or hosted auth system exists", "status": "not_applicable", "next_action": "none" },
+    { "capability": "authorization", "source": "local demo admin login", "outcome": "retain the requested device-local demo sign-in; this is not production-grade access control", "status": "pending_verification", "next_action": "verify sign-in, protected dashboard, and sign-out" },
+    { "capability": "uploaded file bytes", "source": "repository public/images", "outcome": "migrate the supplied manufacturing images", "status": "in_progress", "next_action": "verify images load in preview" },
+    { "capability": "external providers and secrets", "source": "none detected", "outcome": "not applicable; no provider integrations or secret requirements found", "status": "not_applicable", "next_action": "none" },
+    { "capability": "public endpoints and callbacks", "source": "none detected", "outcome": "not applicable; this is a local static-data application", "status": "not_applicable", "next_action": "none" },
+    { "capability": "webhooks and schedules", "source": "none detected", "outcome": "not applicable; none found", "status": "not_applicable", "next_action": "none" },
+    { "capability": "cutover", "source": "GitHub repository", "outcome": "continue in this Lovable project; no live service or external data store to switch", "status": "not_applicable", "next_action": "none" },
+    { "capability": "verification", "source": "preview and project tests", "outcome": "verify key routes, admin CRUD, local persistence, and form behavior", "status": "pending", "next_action": "complete preview checks and tests" }
+  ]
+}
