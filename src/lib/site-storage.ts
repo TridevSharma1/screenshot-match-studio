@@ -13,7 +13,7 @@ export function readSiteContent(): SiteContent {
     if (!saved) return siteDefaults;
     const parsed: unknown = JSON.parse(saved);
     if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) return siteDefaults;
-    return { ...siteDefaults, ...parsed as SiteContent };
+    return { ...siteDefaults, ...(parsed as SiteContent) };
   } catch {
     return siteDefaults;
   }
@@ -25,7 +25,15 @@ export function writeSiteCollection(section: string, records: SiteRecord[]) {
   window.dispatchEvent(new Event(changeEvent));
 }
 
+export function resetSiteContentToDefaults() {
+  if (typeof window !== "undefined") {
+    window.localStorage.removeItem(contentKey);
+    window.dispatchEvent(new Event(changeEvent));
+  }
+}
+
 export function subscribeToSiteContent(listener: () => void) {
+  if (typeof window === "undefined") return () => {};
   window.addEventListener(changeEvent, listener);
   window.addEventListener("storage", listener);
   return () => {
@@ -35,15 +43,21 @@ export function subscribeToSiteContent(listener: () => void) {
 }
 
 export function signInAdmin(username: string, password: string) {
-  if (username !== adminCredentials.username || password !== adminCredentials.password) return false;
-  window.localStorage.setItem(sessionKey, "signed-in");
+  if (username !== adminCredentials.username || password !== adminCredentials.password)
+    return false;
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(sessionKey, "signed-in");
+  }
   return true;
 }
 
 export function isAdminSignedIn() {
+  if (typeof window === "undefined") return false;
   return window.localStorage.getItem(sessionKey) === "signed-in";
 }
 
 export function signOutAdmin() {
-  window.localStorage.removeItem(sessionKey);
+  if (typeof window !== "undefined") {
+    window.localStorage.removeItem(sessionKey);
+  }
 }
